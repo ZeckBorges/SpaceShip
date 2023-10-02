@@ -47,6 +47,21 @@ public class Enemy extends Entidades {
 					break;
 				}
 			}
+			
+			if(e instanceof TripleShot){
+				if(Entidades.isColidding(this, e)){
+					Game.entidades.remove(e);
+					life--;
+					if(life == 0){
+						Explosion explosion = new Explosion(x,y,60,48,null);
+						Game.entidades.add(explosion);
+						Game.entidades.remove(this);
+						Game.score++;
+						return;
+					}
+					break;
+				}
+			}
 		}
 		
 		//Renderizando tiro inimigo

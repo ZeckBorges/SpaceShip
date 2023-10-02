@@ -56,8 +56,12 @@ public class Player extends Entidades{
 				shoot = false;
 				int xx = this.getX() + 18;
 				int yy = this.getY();
-				Bullet bullet = new Bullet(xx, yy, 4,10, null);
+				TripleShot bullet = new TripleShot(xx - 10, yy, 4,10, null);
+				TripleShot bullet2 = new TripleShot(xx, yy, 4,10, null);
+				TripleShot bullet3 = new TripleShot(xx + 10, yy, 4,10, null);
 				Game.entidades.add(bullet);
+				Game.entidades.add(bullet2);
+				Game.entidades.add(bullet3);
 			}
 			
 		}
@@ -81,7 +85,7 @@ public class Player extends Entidades{
 		}
 		
 		
-		//Dano por Colis„o
+		//Dano por Colis√£o
 		for(int i = 0; i < Game.entidades.size(); i++){
 			Entidades e = Game.entidades.get(i);
 			if(e instanceof Enemy){
